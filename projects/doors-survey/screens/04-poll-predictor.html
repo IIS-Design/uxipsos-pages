@@ -35,16 +35,11 @@
              aria-label="Your prediction: percentage of Ipsos iSay members who have a cat">
     </div>
 
-    <button type="button" class="btn btn-primary btn-lg btn-cta" id="placeBtn" disabled>Place prediction</button>
+    <button type="button" class="btn btn-primary btn-lg btn-cta btn-cta--center" id="placeBtn" disabled>Place prediction</button>
   </section>
 
   <section data-state="calculating" class="stage pt-4 pt-md-0 text-center" hidden>
-    <svg class="loading-icon" viewBox="0 0 64 64" role="img" aria-hidden="true">
-      <path fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" d="M14 8h36a6 6 0 0 1 6 6v20a6 6 0 0 1-6 6H26l-8 8v-8h-4a6 6 0 0 1-6-6V14a6 6 0 0 1 6-6Z"/>
-      <circle class="dot" cx="26" cy="24" r="3" fill="currentColor"/>
-      <circle class="dot" cx="35" cy="24" r="3" fill="currentColor"/>
-      <circle class="dot" cx="44" cy="24" r="3" fill="currentColor"/>
-    </svg>
+    <img src="https://cdn.ipsosinteractive.com/deploy/PanelOne/resources/images/animations/preloaders/bubble-dots.gif" class="img-fluid mb-3" alt="" height="100" width="100" aria-hidden="true">
     <h4 class="mb-2">Calculating the awesomeness of your prediction&#8230;</h4>
     <p>Please wait a moment</p>
   </section>
@@ -66,7 +61,7 @@
       </div>
     </div>
     <!-- Inert by design: no dashboard exists in this prototype. -->
-    <button type="button" class="btn btn-primary btn-lg btn-cta">Go to Dashboard</button>
+    <button type="button" class="btn btn-primary btn-lg btn-cta btn-cta--center">Go to Dashboard</button>
   </section>
 
 </template>
