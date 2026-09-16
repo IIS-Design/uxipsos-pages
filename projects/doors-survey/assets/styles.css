@@ -200,26 +200,7 @@ body {
   background: var(--gray-900);
   aspect-ratio: 16 / 9.6;
 }
-.video-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.video-play-btn {
-  position: absolute; inset: 0; margin: auto; width: 3.4rem; height: 3.4rem;
-  border-radius: 50%; border: none; background: rgba(255,255,255,.92);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.1rem; color: var(--text-main);
-}
-.video-play-btn:not(:disabled):hover { background: #fff; }
-.video-play-btn:disabled { opacity: .85; cursor: not-allowed; }
-.video-scrub {
-  position: absolute; left: .9rem; right: .9rem; bottom: 2.4rem;
-  height: 3px; border-radius: 2px; background: rgba(255,255,255,.35);
-}
-.video-scrub-fill { width: 4%; height: 100%; border-radius: 2px; background: #fff; }
-.video-controls-row {
-  position: absolute; left: .9rem; right: .9rem; bottom: .8rem;
-  display: flex; align-items: center; justify-content: space-between;
-  color: #fff; font-size: .78rem;
-}
-.video-controls-row .icons { display: flex; gap: .7rem; opacity: .9; }
+.video-card iframe { width: 100%; height: 100%; display: block; }
 
 /* ---------- Cell 02 — Spinning Wheel ---------- */
 /* Welcome screen's decorative hero (see markup comment) — plain fluid
