@@ -1,0 +1,288 @@
+:root {
+  --white: #fff;
+  --gray-100: #f6f6f6;
+  --gray-200: #e0e0e0;
+  --gray-300: #b8b7b9;
+  --indigo-50: #f8f9ff;
+  --indigo-500: #2f469c;
+  --indigo-600: #1d3590;
+  --indigo-700: #112572;
+  --indigo-900: #02103f;
+  --purple-500: #84329b;
+  --green-50: #f4fffb;
+  --green-700: #0f4e37;
+  --orange-500: #d3681b;
+  --red-500: #cf2c53;
+  --text-main: var(--indigo-900);
+  --text-muted: #767279;
+  --text-link: var(--indigo-500);
+}
+
+* { box-sizing: border-box; }
+
+html, body { min-height: 100%; }
+
+body {
+  margin: 0;
+  background: var(--white);
+  color: var(--text-main);
+  font-family: Inter, "Noto Color Emoji", Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+button, input { font: inherit; }
+
+.page-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Site container — header/footer only. A wide, Bootstrap-`.container`-
+   style responsive box: full-width with a gutter below 576px, then a
+   fixed max-width per breakpoint, centered. Deliberately separate from
+   .stage (below), which is the much narrower column the wheel/content
+   itself sits in — header/footer must NOT share .stage's max-width. */
+.site-container {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 1.75rem;
+  box-sizing: border-box;
+}
+@media (min-width: 576px)  { .site-container { max-width: 540px; } }
+@media (min-width: 768px)  { .site-container { max-width: 720px; } }
+@media (min-width: 992px)  { .site-container { max-width: 960px; } }
+@media (min-width: 1200px) { .site-container { max-width: 1140px; } }
+@media (min-width: 1400px) { .site-container { max-width: 1320px; } }
+
+.app-header, .app-footer { width: 100%; }
+.app-header { padding: 1.4rem 0 .4rem; }
+.brand { display: inline-flex; line-height: 0; }
+.brand img { display: block; width: auto; height: 38px; }
+
+.screen-main {
+  flex: 1 0 auto;
+  width: 100%;
+  padding: 1.5rem 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.stage { width: 100%; max-width: 760px; margin: auto; }
+
+h1 {
+  margin: .5rem 0 .75rem;
+  color: var(--text-main);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  line-height: 1.18;
+  font-weight: 700;
+}
+h1:focus { outline: none; }
+
+p { margin: 0 0 1rem; color: var(--text-muted); }
+strong { color: inherit; }
+a, .link-button { color: var(--text-link); font-weight: 700; }
+a { text-decoration: none; }
+a:hover, .link-button:hover { color: var(--indigo-700); text-decoration: underline; }
+.text-secondary { color: var(--purple-500); }
+.centered { text-align: center; }
+
+.wheel-hero-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 1.25rem 0;
+}
+
+.dotted-divider { padding-top: .25rem; border-top: 1px dashed var(--gray-300); }
+.rules-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: .75rem;
+  margin-top: 1rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid rgba(0, 0, 0, .1);
+  border-radius: 8px;
+  background: rgba(47, 70, 156, .03);
+  transition: background .2s ease, border-color .2s ease;
+}
+.rules-consent:hover { background: rgba(47, 70, 156, .06); border-color: rgba(47, 70, 156, .2); }
+.rules-consent input {
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  margin: .05rem 0 0;
+  position: relative;
+  border: 2px solid var(--gray-300);
+  border-radius: 4px;
+  background: var(--white);
+  cursor: pointer;
+  transition: .2s cubic-bezier(.4, 0, .2, 1);
+}
+.rules-consent input:hover { border-color: var(--indigo-500); box-shadow: 0 0 0 3px rgba(47, 70, 156, .08); }
+.rules-consent input:focus-visible { outline: none; border-color: var(--indigo-500); box-shadow: 0 0 0 4px rgba(47, 70, 156, .25); }
+.rules-consent input:checked { border-color: var(--indigo-500); background: var(--indigo-500); }
+.rules-consent input::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6px;
+  height: 12px;
+  border: solid var(--white);
+  border-width: 0 2.5px 2.5px 0;
+  opacity: 0;
+  transform: translate(-50%, -60%) rotate(45deg) scale(0);
+  transition: .2s cubic-bezier(.68, -.55, .27, 1.55);
+}
+.rules-consent input:checked::after { opacity: 1; transform: translate(-50%, -60%) rotate(45deg) scale(1); }
+.rules-consent label { cursor: pointer; }
+.rules-error { margin: .5rem 0 0; color: var(--red-500); font-size: .875rem; }
+
+.welcome-actions { display: flex; align-items: center; gap: .75rem; margin-top: 1.25rem; }
+.welcome-actions p { margin: 0; }
+.link-button { padding: 0; border: 0; background: none; cursor: pointer; }
+
+.button {
+  min-height: 44px;
+  padding: 9px 16px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.button-primary { color: var(--white); background: var(--indigo-500); }
+.button-primary:hover { background: var(--indigo-600); }
+.button:focus-visible, .link-button:focus-visible, .wheel-hub:focus-visible {
+  outline: 2px solid var(--indigo-500);
+  outline-offset: 3px;
+}
+
+.wheel-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 327px;
+  aspect-ratio: 327 / 295;
+  margin: 1.5rem auto;
+  background: url("https://cdn.ipsosinteractive.com/deploy/PanelOne/resources/images/revamp/spinning-wheel/bg-wheel-m.webp") center / cover no-repeat;
+}
+.wheel-scene { position: relative; width: min(78vw, 300px); }
+.wheel-disc {
+  display: block;
+  width: 100%;
+  height: auto;
+  transform: rotate(0deg);
+  transition: transform 6.06s cubic-bezier(.15, .62, .2, 1);
+}
+.wheel-disc.is-spinning { transform: rotate(var(--spin-angle, 1822.5deg)); }
+.wheel-hub {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  width: 22%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  transform: translate(-50%, -59.2%);
+}
+.wheel-hub img { display: block; width: 100%; height: auto; }
+.wheel-hub:hover:not(:disabled) img, .wheel-hub:focus-visible img { filter: brightness(1.08); }
+.wheel-hub:disabled { cursor: default; opacity: .9; }
+@keyframes pointer-tick {
+  0%, 100% { transform: translate(-50%, -59.2%) rotate(-10deg); }
+  50% { transform: translate(-50%, -59.2%) rotate(10deg); }
+}
+.wheel-hub.is-ticking { transform-origin: 50% 59.2%; animation: pointer-tick .2s ease-in-out; }
+
+.celebration { position: relative; margin-bottom: 1.5rem; }
+.celebration .confetti {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+.celebration > :not(.confetti) { position: relative; z-index: 2; }
+.alert { margin: 1.5rem 0; padding: 1rem; border-radius: 6px; }
+.alert p { margin: 0; font-size: 1.25rem; }
+.alert-success { background: var(--green-50); }
+.alert-success p, .alert-success strong { color: var(--green-700); }
+.alert-primary { background: var(--indigo-50); }
+.alert-primary p { color: var(--indigo-600); }
+.star { color: var(--orange-500); }
+.main-page-button { margin-top: 1.5rem; }
+
+.app-footer { flex-shrink: 0; padding: 1.4rem 0 1.6rem; }
+.app-footer img { display: block; width: auto; height: 26px; }
+
+.launcher-list { display: grid; gap: 1rem; margin-top: 1.5rem; }
+.launcher-link {
+  display: block;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--gray-300);
+  border-radius: 8px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color .2s ease, background .2s ease;
+}
+.launcher-link:hover, .launcher-link:focus-visible {
+  border-color: var(--indigo-500);
+  background: rgba(47, 70, 156, .04);
+  text-decoration: none;
+  color: inherit;
+}
+.launcher-link:focus-visible { outline: 2px solid var(--indigo-500); outline-offset: 3px; }
+.launcher-link strong { display: block; color: var(--text-main); font-size: 1.1rem; margin-bottom: .25rem; }
+.launcher-link span { display: block; color: var(--text-muted); font-size: .9rem; }
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+@media (min-width: 768px) {
+  .screen-main { justify-content: center; }
+  .wheel-container {
+    max-width: 798px;
+    aspect-ratio: 798 / 386;
+    background-image: url("https://cdn.ipsosinteractive.com/deploy/PanelOne/resources/images/revamp/spinning-wheel/bg-wheel.webp");
+  }
+}
+
+@media (max-width: 767.98px) {
+  .app-header { padding: 1rem 0 .25rem; }
+  .brand img { height: 30px; }
+  .app-footer { padding: 1.2rem 0; }
+  .site-container { padding-inline: 1rem; }
+}
+
+@media (max-width: 575.98px) {
+  .welcome-actions { display: block; }
+  .welcome-actions .button { width: 100%; }
+  .welcome-actions p { margin-top: .75rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; }
+  .wheel-disc, .wheel-disc.is-spinning { transition-duration: .01ms; }
+  .wheel-hub.is-ticking { animation: none; }
+  .celebration .confetti { display: none; }
+}
