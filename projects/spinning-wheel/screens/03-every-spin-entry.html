@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Daily Prize Wheel — Prize Draw Scenario 2</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Noto+Color+Emoji&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body data-variant="every-spin-entry">
+  <div class="page-shell">
+    <header class="app-header">
+      <div class="site-container">
+        <a class="brand" href="../index.html" aria-label="Ipsos iSay home">
+          <img src="https://cdn.ipsosinteractive.com/deploy/PanelOne/resources/logos/ipsos_isay_logo.svg" alt="Ipsos iSay">
+        </a>
+      </div>
+    </header>
+
+    <main class="screen-main" id="mainContent">
+      <div class="stage">
+        <section data-state="welcome">
+          <h1 tabindex="-1">Welcome to <span class="text-secondary">🎡 Daily Prize Wheel</span>!</h1>
+          <p>Every day, you get one free spin for the chance to win fun prizes!</p>
+
+          <picture>
+            <source media="(min-width: 576px)" srcset="https://cdn.ipsosinteractive.com/deploy/PanelOne/resources/images/revamp/spinning-wheel/main-image.webp">
+            <img class="wheel-hero-image" src="https://cdn.ipsosinteractive.com/deploy/PanelOne/resources/images/revamp/spinning-wheel/main-image-m.webp" alt="" aria-hidden="true">
+          </picture>
+
+          <div class="dotted-divider">
+            <div class="rules-consent">
+              <input type="checkbox" id="termsCheckbox">
+              <label for="termsCheckbox">
+                I agree with the <a target="_blank" rel="noopener noreferrer" href="https://www.google.com">General Statements</a> and the <a target="_blank" rel="noopener noreferrer" href="https://www.google.com">Draw Rules</a>.
+              </label>
+            </div>
+            <p class="rules-error" id="termsError" role="alert" hidden>You must agree to the General Statements before continuing.</p>
+          </div>
+
+          <div class="welcome-actions">
+            <button type="button" class="button button-primary" id="spinNowButton">Spin now!</button>
+            <p>or <button type="button" class="link-button" id="dashboardButton">Go to Dashboard</button></p>
+          </div>
+        </section>
+
+        <section data-state="play" class="centered" hidden>
+          <h1>Daily Prize Wheel</h1>
+          <p>Press the center of the wheel to spin. Good luck!</p>
+          <p>Every spin earns 1 Prize Draw Entry.</p>
+
+          <div class="wheel-container">
+            <div class="wheel-scene">
+              <img class="wheel-disc" id="wheelDisc"
+                   src="https://cdn.ipsosinteractive.com/deploy/PanelOne/resources/images/revamp/spinning-wheel/wheel.svg"
+                   alt="Daily Prize Wheel">
+              <button type="button" class="wheel-hub" id="wheelHub" aria-label="Spin the wheel">
+                <img src="https://cdn.ipsosinteractive.com/deploy/PanelOne/resources/images/revamp/spinning-wheel/pointer.svg" alt="">
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section data-state="result-points" class="centered" hidden>
+          <div class="celebration">
+            <img class="confetti" src="https://cdn.ipsosinteractive.com/deploy/PanelOne/resources/images/revamp/survey/anim-confetti.gif" alt="" aria-hidden="true">
+            <h1>😀 You won <span id="pointsAmount">50</span> points!</h1>
+            <div class="alert alert-success">
+              <p><span class="star" aria-hidden="true">★</span> <strong>You also earned 1 Prize Draw Entry.</strong></p>
+            </div>
+          </div>
+          <p>Your prize has been added to your Ipsos iSay account.<br>Play again tomorrow for another chance to win!</p>
+          <button type="button" class="button button-primary main-page-button">Go to main page</button>
+        </section>
+      </div>
+    </main>
+
+    <footer class="app-footer">
+      <div class="site-container">
+        <img src="https://cdn.ipsosinteractive.com/deploy/PanelOne/resources/logos/ipsos_logo.svg" alt="Ipsos">
+      </div>
+    </footer>
+  </div>
+
+  <div id="wheelAnnouncement" class="visually-hidden" aria-live="polite"></div>
+  <script src="../script.js"></script>
+</body>
+</html>

@@ -20,6 +20,18 @@
       { state: "result-draw", angle: 2047.5, announcement: "You got 1 Prize Draw Entry! You have been entered into the prize draw." },
       { state: "result-points", points: "10", angle: 2092.5, announcement: "You earned 10 points!" },
       { state: "result-draw", angle: 2137.5, announcement: "You got 1 Prize Draw Entry! You have been entered into the prize draw." }
+    ],
+    // Scenario 2 (UK/NL): every spin earns 1 Prize Draw Entry regardless of
+    // slice, so there's no separate "draw" outcome/state to pick between —
+    // every entry below still only ever resolves to result-points. The
+    // unconditional Prize Draw Entry confirmation lives in the result-points
+    // markup itself (screens/03-every-spin-entry.html), not in this config,
+    // since it's true for every slice rather than something JS needs to pick.
+    "every-spin-entry": [
+      { state: "result-points", points: "50", angle: 1822.5, announcement: "You won 50 points! You also earned 1 Prize Draw Entry." },
+      { state: "result-points", points: "30", angle: 1912.5, announcement: "You won 30 points! You also earned 1 Prize Draw Entry." },
+      { state: "result-points", points: "20", angle: 2002.5, announcement: "You won 20 points! You also earned 1 Prize Draw Entry." },
+      { state: "result-points", points: "10", angle: 2092.5, announcement: "You won 10 points! You also earned 1 Prize Draw Entry." }
     ]
   };
 
